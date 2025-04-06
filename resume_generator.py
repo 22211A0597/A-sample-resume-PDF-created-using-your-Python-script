@@ -2,7 +2,6 @@ import argparse
 import requests
 from fpdf import FPDF 
 def get_resume_data(name="Your Name"):
-    """Fetches resume data from the provided API."""
     api_url = f"https://expressjs-api-resume-random.onrender.com/resume?name={name}"
     try:
         response = requests.get(api_url)
@@ -12,8 +11,6 @@ def get_resume_data(name="Your Name"):
         print(f"Error fetching data from API: {e}")
         return None
 def generate_resume_pdf(data, output_path="resume.pdf", font_size=12, font_color="#000000", bg_color="#FFFFFF"):
-    """Generates a resume PDF with the given data and customization options."""
-
     pdf = FPDF()  
     pdf.add_page()
     pdf.set_font("Arial", size=font_size)
